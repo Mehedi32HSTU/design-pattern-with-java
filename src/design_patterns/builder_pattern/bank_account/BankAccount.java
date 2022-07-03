@@ -1,6 +1,11 @@
 package design_patterns.builder_pattern.bank_account;
 
 public class BankAccount {
+	private Long accountNumber;
+	private String ownerName;
+	private String branchName;
+	private Double balance;
+	private Double interestRate;
 
 	public static class Builder {
 		private Long accountNumber;
@@ -13,28 +18,26 @@ public class BankAccount {
 			this.accountNumber = accountNumber;
 		}
 
-		public Builder withOwner (String ownerName) {
+		public Builder setOwnerName(String ownerName) {
 			this.ownerName = ownerName;
-
 			return this;
 		}
 
-		public Builder atBranch (String branchName) {
+		public Builder setBranchName(String branchName) {
 			this.branchName = branchName;
-
 			return this;
 		}
-		public Builder openingBalance (Double balance) {
+
+		public Builder setBalance(Double balance) {
 			this.balance = balance;
-
 			return this;
 		}
 
-		public Builder atRate (Double interestRate) {
+		public Builder setInterestRate(Double interestRate) {
 			this.interestRate = interestRate;
-
 			return this;
 		}
+
 		public BankAccount build() {
 			BankAccount bankAccount = new BankAccount();
 			bankAccount.accountNumber = this.accountNumber;
@@ -45,12 +48,6 @@ public class BankAccount {
 			return bankAccount;
 		}
 	}
-
-	private Long accountNumber;
-	private String ownerName;
-	private String branchName;
-	private Double balance;
-	private Double interestRate;
 
 	private BankAccount() {
 
